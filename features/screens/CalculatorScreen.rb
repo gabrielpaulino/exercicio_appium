@@ -30,15 +30,15 @@ class CalculatorScreen
         expect(resultado.to_i).to eq(2)
     end
 
-    def dividir_por_0(a, b)
-        find_element(:id, "digit_#{a}").click
+    def dividir_por_0(int1, int2)
+        find_element(:id, "digit_#{int1}").click
         find_element(:id, @dividir).click
-        find_element(:id, "digit_#{b}").click
+        find_element(:id, "digit_#{int2}").click
         find_element(:id, @igual).click
     end
 
     def valida_mensagem_resultado
-        msg_oper_invalido = find_element(:id, @msg_resultado)
+        msg_oper_invalido = driver.find_element(:id, @msg_resultado)
         expect(msg_oper_invalido.text).to eql 'Impos. dividir por 0'
     end
 end
